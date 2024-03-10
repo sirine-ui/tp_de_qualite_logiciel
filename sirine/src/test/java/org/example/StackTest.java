@@ -20,21 +20,19 @@ class StackTest {
 
     @Test
     void pushShouldNotExceedCapacity() {
-        for (int i = 0; i < 10; i++) {
+       for (int i = 0; i < 10; i++) {
             stack.push(4);
         }
         assertEquals(10, stack.size());
-        assertThrows(IllegalStateException.class, () -> stack.push(10));
-      //  assertEquals(10, stack.size());
-        //assertEquals(4, stack.peek());
+        stack.push(11);
+        assertEquals(11, stack.size());
     }
 
 
     @Test//remplissage de la pile : for 0->9
-    void popShouldExpandArrayIfStackIsFull() {
+    void popInStackThatIsNotEmpty() {
         stack.push(10);
-        stack.pop();
-        assertEquals(10, stack.size());
+        assertEquals(10, stack.pop());
     }
 
     @Test
@@ -77,6 +75,7 @@ class StackTest {
 
     @Test
     public void testPeekOnEmptyStack() {
+        assertTrue(stack.isEmpty());
         assertThrows(IllegalStateException.class, () -> stack.peek());
     }
 
