@@ -1,4 +1,4 @@
-package org.example;
+package org.example.tp0;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -46,5 +46,19 @@ class PrimeTest {
         assertFalse(p.isPrime(27));
         assertFalse(p.isPrime(28));
         assertFalse(p.isPrime(30));
+    }
+    @Test
+    public void testNegativeNumber() {
+        assertFalse(Prime.isPrime(-5));
+    }
+
+    @Test
+    public void testLargePrimeNumber() {
+        assertTrue(Prime.isPrime(999983)); // Large prime number
+    }
+
+    @Test
+    public void testLargeNonPrimeNumber() {
+        assertFalse(Prime.isPrime(999980)); // Large non-prime number
     }
 }

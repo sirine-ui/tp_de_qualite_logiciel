@@ -1,5 +1,6 @@
-package org.example;
+package org.example.tp0;
 
+import org.example.tp0.BlackJack;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Assertions;
 

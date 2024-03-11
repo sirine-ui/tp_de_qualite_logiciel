@@ -1,6 +1,8 @@
-package org.example;
+package org.example.tp0;
 
 import static org.junit.jupiter.api.Assertions.*;
+
+import org.example.tp0.Person;
 import org.junit.jupiter.api.Test;
 
 public class PersonTest {
