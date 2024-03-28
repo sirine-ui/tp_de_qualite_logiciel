@@ -17,5 +17,4 @@ public class RomanNumeral {
             }
             return sb.toString();
         }
-
 }

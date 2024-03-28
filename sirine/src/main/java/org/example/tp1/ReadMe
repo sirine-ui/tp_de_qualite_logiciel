@@ -1,0 +1,114 @@
+Exo1Correction.Class pour la correction de l’exercice 1:
+
+public class Palindrome {
+    public static boolean isPalindrome(String s) {
+        if (s == null) {
+            throw new NullPointerException("String must not be null");
+        }
+        s = s.toLowerCase().replaceAll("\\s+", "");
+        int i = 0;
+        int j = s.length() - 1;
+        while (i < j) {
+            if (s.charAt(i) != s.charAt(j)) {
+                return false;
+            }
+            j--;//correection ici
+            i++;//correection ici
+        }
+        return true;
+    }
+}
+--------------------------------------------------------------
+Exo2Correction.Class pour la correction de l’exercice 2:
+
+public class Anagram {
+    public static boolean isAnagram(String s1, String s2) {
+        if (s1 == null || s2 == null) {
+            throw new NullPointerException("Strings must not be null");
+        }
+        s1 = s1.toLowerCase().replaceAll("\\s+", "");
+        s2 = s2.toLowerCase().replaceAll("\\s+", "");
+        if (s1.length() != s2.length()) {
+            return false;
+        }
+        int[] count = new int[26];
+        for (int i = 0; i < s1.length(); i++) {//utiliser < à laplase de <=
+            count[s1.charAt(i) - 'a']++;
+            count[s2.charAt(i) - 'a']--;
+        }
+        for (int c : count) {
+            if (c != 0) {
+                return false;
+            }
+        }
+        return true;
+    }
+}
+-------------------------------------------------------------------
+Exo3Correction.Class pour la correction de l’exercice 3:
+
+public class BinarySearch {
+    public static int binarySearch(int[] array, int element) {
+        if (array == null) {
+            throw new NullPointerException("Array must not be null");
+        }
+        int low = 0;
+        int high = array.length - 1;
+        while (low <= high) {//<= à la place de <
+            int mid = (low + high) / 2;
+            if (array[mid] == element) {
+                return mid;
+            } else if (array[mid] <= element) {
+                low = mid + 1;
+            } else {
+                high = mid - 1;
+            }
+        }
+        return -1;
+    }
+}
+------------------------------------------------------------------------
+Exo4Correction.Class pour la correction de l’exercice 4:
+
+public class QuadraticEquation {
+    public static double[] solve(double a, double b, double c) {
+        if (a == 0) {
+            throw new IllegalArgumentException("a must not be zero");
+        }
+        double delta = (b * b )- (4* a * c);
+        if (delta < 0) {
+            return null;
+        }
+        if (delta == 0) {
+            return new double[]{-b / (2 * a)};
+        }
+        return new double[]{
+                (-b + Math.sqrt(delta)) / (2 * a),
+                (-b - Math.sqrt(delta)) / (2 * a)
+        };
+    }
+}
+-----------------------------------------------------------------------
+Exo5Correction.Class pour la correction de l’exercice 5:
+
+public class RomanNumeral {
+        public static String toRoman(int n) {
+            if (n < 1 || n > 3999) {
+                throw new IllegalArgumentException("n must be between 1 and 3999");
+            }
+            String[] symbols = {"M", "CM", "D", "CD", "C", "XC", "L", "XL",
+                    "X", "IX", "V", "IV", "I"};
+            int[] values = {1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4,1};
+            StringBuilder sb = new StringBuilder();
+            for (int i = 0; i < symbols.length; i++) {//< au lieu de <=
+                while (n > values[i]) {
+                    sb.append(symbols[i]);
+                    n -= values[i];
+                }
+            }
+            return sb.toString();
+        }
+}
+-----------------------------------------------------------------------
+pour l'exercice 6: il est correct
+             
